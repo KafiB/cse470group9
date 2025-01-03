@@ -1,1 +1,1 @@
-export const host = "https://finalprojectbackend.vercel.app";
+export const host = "http://localhost:8000";

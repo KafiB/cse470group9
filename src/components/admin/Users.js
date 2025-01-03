@@ -136,22 +136,41 @@ const Users =()=>{
                         </TableRow>
                       </TableHead>
                       <TableBody>
-                        {rows.slice(0).reverse().map((row) => (
-                         
-                          <TableRow key={row._id}>
-                            <TableCell component="th" scope="row">
-                             {row.name}
-                            </TableCell>
-                            <TableCell align="center">{row._id}</TableCell>
-                            <TableCell align="center">{row.email}</TableCell>
-                             <TableCell align="center">{row.date.slice(0,10)}</TableCell>
-                             {(row.email == "admin@gmail.com")? <TableCell align="center"><Button variant="contained" color="Primary">Admin</Button></TableCell>
-                             :<TableCell align="center"><Button variant="contained" color="secondary"onClick={()=> deleteid(row._id)}>Delete</Button></TableCell>}  
-                                 
-                            
-                          </TableRow>
-                        ))}
-                      </TableBody>
+  {rows.slice(0).reverse().map((row) => (
+    <TableRow key={row._id}>
+      <TableCell component="th" scope="row">
+        {row.name}
+      </TableCell>
+      <TableCell align="center">{row._id}</TableCell>
+      <TableCell align="center">{row.email}</TableCell>
+      <TableCell align="center">
+        {row.email === "admin@gmail.com" ? (
+          "2024-12-29"  
+        ) : (
+          row.date.slice(0, 10)  
+        )}
+      </TableCell>
+      {row.email === "admin@gmail.com" ? (
+        <TableCell align="center">
+          <Button variant="contained" color="primary">
+            Admin
+          </Button>
+        </TableCell>
+      ) : (
+        <TableCell align="center">
+          <Button
+            variant="contained"
+            color="secondary"
+            onClick={() => deleteid(row._id)}
+          >
+            Delete
+          </Button>
+        </TableCell>
+      )}
+    </TableRow>
+  ))}
+</TableBody>
+
                    </Table>
              </TableContainer>   
             
